@@ -1,5 +1,4 @@
 const Users = require('../model/users.js');
-
 const bcrypt = require('bcrypt');
 const jwt=require('jsonwebtoken');
 
@@ -92,7 +91,7 @@ const logout =async (req, res) => {
     const result=await Users.findByIdAndUpdate(decodedToken.userId,{token:""});
     res.json({
         status: true,
-        result
+        message:"user logout successfully"
     })
 }
 module.exports = { login, register, logout };
